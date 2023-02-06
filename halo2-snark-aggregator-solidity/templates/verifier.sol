@@ -246,7 +246,7 @@ contract Verifier {
 
         return (input[3], input[4]);
     }
-    
+
     function ecc_mul_add_pm(
         uint256[{{memory_size}}] memory m,
         uint256[] calldata proof,
@@ -356,7 +356,7 @@ contract Verifier {
     function verify(
         uint256[] calldata proof,
         uint256[] calldata target_circuit_final_pair
-    ) public view {
+    ) public view returns (bool) {
         uint256[{{instance_size}}] memory instances;
         instances[0] = target_circuit_final_pair[0] & ((1 << 136) - 1);
         instances[1] = (target_circuit_final_pair[0] >> 136) + ((target_circuit_final_pair[1] & 1) << 136);
@@ -373,7 +373,6 @@ contract Verifier {
 
         G1Point[] memory g1_points = new G1Point[](2);
         G2Point[] memory g2_points = new G2Point[](2);
-        bool checked = false;
 
         (x0, y0, x1, y1) = get_wx_wg(proof, instances);
         g1_points[0].x = x0;
@@ -383,8 +382,9 @@ contract Verifier {
         g2_points[0] = get_verify_circuit_g2_s();
         g2_points[1] = get_verify_circuit_g2_n();
 
-        checked = pairing(g1_points, g2_points);
-        require(checked);
+        if (!pairing(g1_points, g2_points)) {
+            return false;
+        }
 
         g1_points[0].x = target_circuit_final_pair[0];
         g1_points[0].y = target_circuit_final_pair[1];
@@ -393,7 +393,10 @@ contract Verifier {
         g2_points[0] = get_target_circuit_g2_s();
         g2_points[1] = get_target_circuit_g2_n();
 
-        checked = pairing(g1_points, g2_points);
-        require(checked);
+        if (!pairing(g1_points, g2_points)) {
+            return false;
+        }
+
+        return true;
     }
 }
