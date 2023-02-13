@@ -1,9 +1,9 @@
 #!/bin/sh
 
-mkdir -p waffle/
-mkdir -p waffle/src
-cp ../halo2-snark-aggregator-sdk/output/verifier.sol waffle/src/Verifier.sol
-cd waffle
+mkdir -p hardhat/
+mkdir -p hardhat/src
+cp ../halo2-snark-aggregator-sdk/output/verifier.sol hardhat/contracts/verifier.sol
+cd hardhat
 yarn install
-yarn build
+npx hardhat test
 cd -
