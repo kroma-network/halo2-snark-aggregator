@@ -12,4 +12,4 @@ cargo run --example $1 --release -- --command verify_solidity --folder-path ./ou
 cd ../halo2-snark-aggregator-solidity
 bash setup.sh
 cd hardhat
-yarn test
+npx hardhat test

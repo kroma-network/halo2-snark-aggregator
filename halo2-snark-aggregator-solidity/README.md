@@ -8,14 +8,13 @@ are in the directory `../halo2-snark-aggregator/output`.
 
 ## Step 2. Setup environment for hardhat
 
-TL;DR
-```
-setup.sh
+```shell
+> setup.sh
 ```
 
 ## Step 3. Run hardhat test
 
-```
-cd hardhat
-yarn test
+```shell
+> cd hardhat
+> npx hardhat test
 ```
