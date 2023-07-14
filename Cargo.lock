@@ -513,7 +513,7 @@ dependencies = [
  "halo2curves",
  "log",
  "num-bigint",
- "poseidon 0.2.0 (git+https://github.com/kroma-network/poseidon.git)",
+ "poseidon",
  "rand",
  "rand_pcg",
  "rand_xorshift",
@@ -577,7 +577,7 @@ dependencies = [
 [[package]]
 name = "halo2_proofs"
 version = "0.2.0"
-source = "git+https://github.com/kroma-network/halo2.git?branch=kroma-v0.3.0#895726e2a2910db149af2bb595255e6b1dbad7fb"
+source = "git+https://github.com/kroma-network/halo2.git?rev=9922fbb#9922fbb853201d8ad9feb82bd830a031d7c290b1"
 dependencies = [
  "ark-std",
  "blake2b_simd",
@@ -588,7 +588,7 @@ dependencies = [
  "log",
  "num-bigint",
  "num-integer",
- "poseidon 0.2.0 (git+https://github.com/kroma-network/poseidon.git?branch=kroma-dev-0220)",
+ "poseidon",
  "rand_core",
  "rayon",
  "sha3 0.9.1",
@@ -599,7 +599,7 @@ dependencies = [
 [[package]]
 name = "halo2curves"
 version = "0.3.1"
-source = "git+https://github.com/kroma-network/halo2curves?branch=kroma-0.3.1-derive-serde#c0ac1935e5da2a620204b5b011be2c924b1e0155"
+source = "git+https://github.com/kroma-network/halo2curves?rev=c0ac193#c0ac1935e5da2a620204b5b011be2c924b1e0155"
 dependencies = [
  "ff",
  "group",
@@ -964,17 +964,7 @@ checksum = "e0a7ae3ac2f1173085d398531c705756c94a4c56843785df85a60c1a0afac116"
 [[package]]
 name = "poseidon"
 version = "0.2.0"
-source = "git+https://github.com/kroma-network/poseidon.git?branch=kroma-dev-0220#834f80bcfe85945d7800074645ff055d4d1d97e9"
-dependencies = [
- "group",
- "halo2curves",
- "subtle",
-]
-
-[[package]]
-name = "poseidon"
-version = "0.2.0"
-source = "git+https://github.com/kroma-network/poseidon.git#834f80bcfe85945d7800074645ff055d4d1d97e9"
+source = "git+https://github.com/kroma-network/poseidon.git?rev=00a2fe0#00a2fe049208860a5835b1f24d2a80105439b995"
 dependencies = [
  "group",
  "halo2curves",
